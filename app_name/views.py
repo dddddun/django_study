@@ -1,19 +1,22 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-# from .models import Answer
 from .models import Question
-# from django.http import HttpResponse
-
-# def index(request):
-#     return HttpResponse("안녕하세요~~~~~~ 이거슨~~~~~ 테스트페이지 이지롱")
+from django.core.paginator import Paginator
 
 
 # 질문 목록 보기
 def index(request):
-    # 질문 목록 데이터 (생성일 역순(-)으로 정렬)
+    # 입력 파라미터
+    page = request.GET.get('page', '1')
+
+    # 조회
     question_list = Question.objects.order_by('-create_date')
-    context = {'question_list': question_list}
-    # render함수 = 파이썬 데이터를 템플릿에 적용하여 HTML로 반환하는 함수
+
+    # 페이징처리 (페이지당 10개씩 보여주기)
+    paginator = Paginator(question_list, 10)
+    page_obj = paginator.get_page(page)
+
+    context = {'question_list': page_obj}
     return render(request, 'app_name/question_list.html', context)
 
 # 질문글 자세히 보기
