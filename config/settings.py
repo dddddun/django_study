@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = C:\projects\project_name
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'localhost']
 # Application definition
 # 생성하는 어플리케이션을 추가하지 않으면 데이터베이스 관련 작업을 할 수 없다.
 INSTALLED_APPS = [
+    'common.apps.CommonConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +134,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# 로그인 성공후 이동하는 URL
+LOGIN_REDIRECT_URL = '/'
+
+# 로그아웃시 이동하는 URL
+LOGOUT_REDIRECT_URL = '/'

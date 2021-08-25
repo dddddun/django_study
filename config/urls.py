@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from app_name import views
 # url 앱 별로 분류하기
 # from app_name import views
 
@@ -14,4 +15,7 @@ urlpatterns = [
     # app_name/ 으로 시작하는 페이지를 요청하면 app_name/urls.py 파일의 매핑 정보를 읽어서 처리해라.
 
     path('app_name/', include('app_name.urls')),
+    path('common/', include('common.urls')),
+    # '/'에 해당되는 path
+    path('', views.index, name='index'),
 ]
