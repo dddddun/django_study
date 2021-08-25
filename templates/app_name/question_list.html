@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load app_name_filter %}
 {% block content %}
 
 <!-- 템플릿 상속을 위해 중복된 코드를 삭제
@@ -17,7 +18,10 @@
         {% if question_list %}
         {% for question in question_list %}
         <tr>
-            <td>{{ forloop.counter }}</td>
+            <td>
+                <!-- 번호 = 전체건수 - 시작인덱스 - 현재인덱스 + 1 -->
+                {{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}
+            </td>
             <td>
                 <a href="{% url 'app_name:detail' question.id %}">{{ question.subject }}</a>
             </td>
