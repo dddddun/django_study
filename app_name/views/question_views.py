@@ -3,6 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
+from ..forms import QuestionForm
+from ..models import Question
+
+
 # 질문글 등록
 @login_required(login_url='common:login')
 def question_create(request):
@@ -41,7 +45,7 @@ def question_modify(request, question_id):
     return render(request, 'app_name/question_form.html', context)
 
 
-# 질문글 삭제 
+# 질문글 삭제
 @login_required(login_url='common:login')
 def question_delete(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
