@@ -4,3 +4,4 @@ __pycache__
 myvenv
 db.sqlite3
 .DS_Store
+project_name_settings.py
