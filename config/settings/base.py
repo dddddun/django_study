@@ -17,7 +17,7 @@ import project_name_settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = C:\projects\project_name
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = project_name_settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'localhost']
 
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     # 'app_name',
     # app_name/apps.py 파일의 App_nameConfig 클래스는 앱 생성시 자동으로 만들어진다.
     'app_name.apps.App_nameConfig',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [

@@ -5,9 +5,9 @@ from app_name.views import base_views
 # from app_name import views
 
 urlpatterns = [
+    # '/'에 해당되는 path
+    path('', base_views.index, name='index'),
     path('app_name/', include('app_name.urls')),
     path('admin/', admin.site.urls),
     path('common/', include('common.urls')),
-    # '/'에 해당되는 path
-    path('', base_views.index, name='index'),
 ]
