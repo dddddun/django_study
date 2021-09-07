@@ -12,7 +12,6 @@ def index(request):
     kw = request.GET.get('kw', '')  # 검색어
     so = request.GET.get('so', 'recent') # 정렬기준
 
-
     # 정렬
     if so == 'recommend':
         question_list = Question.objects.annotate(num_voter=Count('voter')).order_by('-num_voter', '-create_date')

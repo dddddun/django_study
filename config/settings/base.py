@@ -42,11 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'app_name',
-    # app_name/apps.py 파일의 App_nameConfig 클래스는 앱 생성시 자동으로 만들어진다.
     'app_name.apps.App_nameConfig',
     'rest_framework',
-
+    'app_name2.apps.AppName2Config',
 ]
 
 MIDDLEWARE = [
